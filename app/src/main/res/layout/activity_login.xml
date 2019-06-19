@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="loginActivity"
+            type="com.hdh.shoplogin.LoginActivity" />
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/glHor20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_chevron_left_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/glHor20"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_title"
+            android:textColor="#1e1e1e"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/glHor20"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:alpha="0.5"
+            android:background="#000000"
+            app:layout_constraintTop_toTopOf="@+id/glHor20" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/glVer20"
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/glVer80"
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="20dp"
+            android:src="@drawable/login"
+            app:layout_constraintBottom_toBottomOf="@+id/glHor50"
+            app:layout_constraintLeft_toLeftOf="@+id/glVer20"
+            app:layout_constraintRight_toRightOf="@+id/glVer80"
+            app:layout_constraintTop_toTopOf="@+id/glHor20" />
+
+        <TextView
+            android:id="@+id/tvMainMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/login_info_mainMessage"
+            android:textColor="#1e1e1e"
+            app:layout_constraintLeft_toLeftOf="@+id/glVer20"
+            app:layout_constraintRight_toRightOf="@+id/glVer80"
+            app:layout_constraintTop_toTopOf="@+id/glHor50" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/glVer10"
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/glVer90"
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <TextView
+            android:id="@+id/tvSubMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/login_info_subMessage"
+            android:textColor="#bebebe"
+            android:textSize="10dp"
+            app:layout_constraintLeft_toLeftOf="@+id/glVer10"
+            app:layout_constraintRight_toRightOf="@+id/glVer90"
+            app:layout_constraintTop_toBottomOf="@+id/tvMainMessage" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/glHor50"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/glHor90"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <View
+            android:id="@+id/vIdTop"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="40dp"
+            app:layout_constraintBottom_toTopOf="@+id/vId"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <EditText
+            android:id="@+id/etId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:drawableLeft="@drawable/ic_account_circle_gray_24dp"
+            android:drawablePadding="5dp"
+            android:hint="@string/login_idText"
+            android:inputType="text"
+            android:textColor="#1e1e1e"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toTopOf="@+id/vId"
+            app:layout_constraintLeft_toLeftOf="@+id/vPassword"
+            app:layout_constraintRight_toRightOf="@+id/vPassword"
+            app:layout_constraintTop_toBottomOf="@+id/vIdTop" />
+
+        <View
+            android:id="@+id/vId"
+            android:layout_width="0dp"
+            android:layout_height="0.1dp"
+            android:layout_marginBottom="40dp"
+            android:alpha="0.3"
+            android:background="#000000"
+            app:layout_constraintBottom_toTopOf="@+id/vPassword"
+            app:layout_constraintLeft_toLeftOf="@+id/btLogin"
+            app:layout_constraintRight_toRightOf="@+id/btLogin" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:drawableLeft="@drawable/password_icon"
+            android:drawablePadding="10dp"
+            android:hint="@string/login_passwordText"
+            android:inputType="textPassword"
+            android:paddingLeft="5dp"
+            android:textColor="#1e1e1e"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toTopOf="@+id/vPassword"
+            app:layout_constraintLeft_toLeftOf="@+id/vPassword"
+            app:layout_constraintRight_toRightOf="@+id/vPassword"
+            app:layout_constraintTop_toBottomOf="@+id/vId" />
+
+        <View
+            android:id="@+id/vPassword"
+            android:layout_width="0dp"
+            android:layout_height="0.1dp"
+            android:layout_marginBottom="10dp"
+            android:alpha="0.3"
+            android:background="#000000"
+            app:layout_constraintBottom_toTopOf="@+id/tvTermText"
+            app:layout_constraintLeft_toLeftOf="@+id/btLogin"
+            app:layout_constraintRight_toRightOf="@+id/btLogin" />
+
+        <TextView
+            android:id="@+id/tvTermText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/login_termText1"
+            android:textColor="#f46288"
+            android:textSize="13dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/btLogin"
+            app:layout_constraintLeft_toLeftOf="@+id/btLogin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_termText2"
+            android:textColor="#1e1e1e"
+            android:textSize="13dp"
+            app:layout_constraintLeft_toRightOf="@+id/tvTermText"
+            app:layout_constraintTop_toTopOf="@+id/tvTermText" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/term_check"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTermText"
+            app:layout_constraintRight_toRightOf="@+id/btLogin"
+            app:layout_constraintTop_toTopOf="@+id/tvTermText" />
+
+        <Button
+            android:id="@+id/btLogin"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#f12653"
+            android:text="@string/login_loginText"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/glHor90"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/btFindAccount"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#ffffff"
+            android:text="@string/login_findAccount"
+            android:textSize="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/glHor90" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

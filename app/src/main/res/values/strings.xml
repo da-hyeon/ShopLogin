@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ShopLogin</string>
+
+    <string name="login_title">로그인(꽃피던시절)</string>
+    <string name="login_info_mainMessage">주문하신 상품의 계정으로 로그인하시면\n배송정보를 실시간으로 볼 수 있어요.</string>
+    <string name="login_info_subMessage">꽃피던시절 비회원 주문 및 SNS 계정(페이스북/네이버 등)으로 로그인 하여 주문하신 경우, \'주문 페이지 바로가기\'를 이용해주세요.</string>
+    <string name="login_info_ingMessage">로그인 중입니다…</string>
+    <string name="login_info_successMessage">로그인 성공!</string>
+    <string name="login_idText">꽃피는시절 아이디</string>
+    <string name="login_passwordText">비밀번호</string>
+    <string name="login_loginText">로그인</string>
+    <string name="login_termText1">자동 로그인 약관</string>
+    <string name="login_termText2">에 동의</string>
+    <string name="login_findAccount">아이디&amp;비밀번호 찾기</string>
+</resources>
