@@ -11,5 +11,6 @@
     <string name="login_loginText">로그인</string>
     <string name="login_termText1">자동 로그인 약관</string>
     <string name="login_termText2">에 동의</string>
+    <string name="login_termText3">자동 로그인 연결 약관</string>
     <string name="login_findAccount">아이디&amp;비밀번호 찾기</string>
 </resources>
