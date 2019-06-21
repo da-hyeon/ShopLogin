@@ -23,18 +23,14 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
 
         //약관동의 레이아웃 클릭
-        mBinding.llTerm.setOnClickListener(v -> {
-            if (mBinding.tvLogin.getVisibility() == View.VISIBLE) {
-                mPresenter.clickTermLayout(mBinding.cbTerm);
-            }
-        });
+        mBinding.llTerm.setOnClickListener(v ->
+                mPresenter.clickTermLayout(mBinding.cbTerm)
+        );
 
         //로그인 클릭
-        mBinding.llLogin.setOnClickListener(v -> {
-            if (mBinding.tvLogin.getVisibility() == View.VISIBLE) {
-                mPresenter.clickLogin(mBinding.etId, mBinding.etPassword, mBinding.cbTerm.isChecked());
-            }
-        });
+        mBinding.llLogin.setOnClickListener(v ->
+                mPresenter.clickLogin(mBinding.etId, mBinding.etPassword, mBinding.cbTerm.isChecked())
+        );
     }
 
     /**
@@ -47,27 +43,86 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void showLoginTry() {
-        mBinding.tvMainMessage.setText("로그인 중입니다..");
-        mBinding.tvSubMessage.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void showLoginSuccess() {
-        mBinding.tvMainMessage.setText("로그인 성공!");
-    }
-
+    /**
+     * 로그인 버튼의 글씨 보이기
+     */
     @Override
     public void showLoginText() {
         mBinding.tvLogin.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * 로딩 보이기
+     */
     @Override
     public void showLoading() {
         mBinding.pbLoading.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * subMessage 보이기
+     */
+    @Override
+    public void showSubMessage() {
+        mBinding.tvSubMessage.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * 자동로그인 연결 약관 보이기
+     */
+    @Override
+    public void showAutoLoginTerm() {
+        mBinding.llTerm.setVisibility(View.GONE);
+        mBinding.btAutoLoginTerm.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * 로그인 버튼의 글씨 숨기기
+     */
+    @Override
+    public void hideLoginText() {
+        mBinding.tvLogin.setVisibility(View.GONE);
+    }
+
+    /**
+     * 로딩 숨기기
+     */
+    @Override
+    public void hideLoading() {
+        mBinding.pbLoading.setVisibility(View.GONE);
+    }
+
+
+    /**
+     * subMessage 숨기기
+     */
+    @Override
+    public void hideSubMessage() {
+        mBinding.tvSubMessage.setVisibility(View.GONE);
+    }
+
+    /**
+     * 자동로그인약관 숨기기
+     */
+    @Override
+    public void hideAutoLoginTerm() {
+        mBinding.llTerm.setVisibility(View.VISIBLE);
+        mBinding.btAutoLoginTerm.setVisibility(View.GONE);
+    }
+
+    /**
+     * MainText 변경
+     *
+     * @param message 보여줄 메세지
+     */
+    @Override
+    public void changeMainMessage(String message) {
+        mBinding.tvMainMessage.setText(message);
+    }
+
+    /**
+     * 알파값 증가
+     */
     @Override
     public void alphaValueIncrease() {
         mBinding.etId.setAlpha(1);
@@ -76,6 +131,9 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         mBinding.llFindAccount.setAlpha(1);
     }
 
+    /**
+     * 알파값 감소
+     */
     @Override
     public void alphaValueReduction() {
         mBinding.etId.setAlpha(0.5f);
@@ -84,13 +142,28 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         mBinding.llFindAccount.setAlpha(0.5f);
     }
 
+    /**
+     * 입력 가능
+     */
     @Override
-    public void hideLoading() {
-        mBinding.pbLoading.setVisibility(View.GONE);
+    public void inputAvailable() {
+        mBinding.etId.setEnabled(true);
+        mBinding.etPassword.setEnabled(true);
+        mBinding.llTerm.setClickable(true);
+        mBinding.cbTerm.setClickable(true);
+        mBinding.llLogin.setClickable(true);
     }
 
+    /**
+     * 입력 불가능
+     */
     @Override
-    public void hideLoginText() {
-        mBinding.tvLogin.setVisibility(View.GONE);
+    public void inputImpossible() {
+        mBinding.etId.setEnabled(false);
+        mBinding.etPassword.setEnabled(false);
+        mBinding.llTerm.setClickable(false);
+        mBinding.cbTerm.setClickable(false);
+        mBinding.llLogin.setClickable(false);
     }
+
 }

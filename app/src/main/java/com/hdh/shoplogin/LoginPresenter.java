@@ -12,7 +12,7 @@ public class LoginPresenter implements LoginContract.Presenter {
     /**
      * 생성자
      */
-    public LoginPresenter(LoginContract.View mView, Context mContext) {
+    LoginPresenter(LoginContract.View mView, Context mContext) {
         this.mView = mView;
         this.mContext = mContext;
     }
@@ -32,31 +32,42 @@ public class LoginPresenter implements LoginContract.Presenter {
     @Override
     public void clickLogin(EditText userID, EditText userPassword, boolean termCheck) {
 
+        //약관동의가 되어있고
         if (termCheck) {
+
+            //아이디 , 비밀번호의 데이터는 없으므로 아무 텍스트나 입력하면 로그인 가능
+            //입력란이 비어있지 않으면
             if (!isEmpty(userID) && !isEmpty(userPassword)) {
-
-                mView.showLoginTry();
-                mView.alphaValueReduction();
                 mView.showLoading();
-                mView.hideLoginText();
-                userID.setFocusableInTouchMode(false);
-                userID.setClickable(false);
-                userID.setFocusable(false);
-                userPassword.setFocusableInTouchMode(false);
-                userPassword.setClickable(false);
-                userPassword.setFocusable(false);
 
+                mView.hideSubMessage();
+                mView.hideLoginText();
+
+                mView.changeMainMessage("로그인 중입니다..");
+
+                mView.alphaValueReduction();
+
+                mView.inputImpossible();
+
+                //요구사항에서 자세하게 기입이 되어있지 않아서 임의로
+                //로그인 성공 표시를 보여준 후 1초 후 약관체크버튼이 사라지게 구현함.
                 new Handler().postDelayed(() -> {
-                    mView.showLoginSuccess();
-                    mView.alphaValueIncrease();
-                    mView.hideLoading();
-                    mView.showLoginText();
-                    userID.setFocusableInTouchMode(true);
-                    userID.setClickable(true);
-                    userID.setFocusable(true);
-                    userPassword.setFocusableInTouchMode(true);
-                    userPassword.setClickable(true);
-                    userPassword.setFocusable(true);
+
+                    mView.changeMainMessage("로그인 성공!");
+
+                    new Handler().postDelayed(() -> {
+                        mView.showLoginText();
+                        mView.showSubMessage();
+                        mView.showAutoLoginTerm();
+
+                        mView.hideLoading();
+
+                        mView.changeMainMessage(mContext.getResources().getString(R.string.login_info_mainMessage));
+
+                        mView.alphaValueIncrease();
+
+                        mView.inputAvailable();
+                    }, 1000);
                 }, 5000);
 
 
