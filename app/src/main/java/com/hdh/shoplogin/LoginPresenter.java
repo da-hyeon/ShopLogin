@@ -67,6 +67,9 @@ public class LoginPresenter implements LoginContract.Presenter {
                         mView.alphaValueIncrease();
 
                         mView.inputAvailable();
+
+                        userID.setText("");
+                        userPassword.setText("");
                     }, 1000);
                 }, 5000);
 
